@@ -1,4 +1,4 @@
-import Products from './productItems.js';
+import Products from '../data/productItems.js';
 import renderProducts from './render-products.js';
 
 const list = document.getElementById('products');
