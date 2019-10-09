@@ -21,8 +21,12 @@ function renderProducts(Products) {
     p.textContent = usd;
 
     const button = document.createElement('button');
-    button.textContent = 'Add';
+    button.textContent = 'Add'; 
     button.value = Products.id;
+    button.addEventListener('click', () => {
+        const getCart = retriveLocalCart;
+
+    }
     p.appendChild(button);
 
     li.appendChild(p);
