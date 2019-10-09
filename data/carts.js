@@ -1,13 +1,14 @@
 const cart = [{
-    id: 'apple',
+    id: 'ironDagger',
     quantity: 2
 }, {
-    id: 'banana',
-    quantity: 5
+    id: 'ironBattleAaxe',
+    quantity: 3
 }, {
-    id: 'mango',
+    id: 'ironWarhammer',
     quantity: 1
 }, {
-    id: 'orange',
+    id: 'steelGreatSword',
     quantity: 10
 }];
+export default cart;
