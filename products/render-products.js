@@ -1,3 +1,4 @@
+import { toUSD } from '../common/utils.js';
 function renderProducts(Products) {
     const li = document.createElement('li');
     li.className = Products.category;
@@ -14,6 +15,7 @@ function renderProducts(Products) {
 
     const p = document.createElement('p');
     p.className = 'price';
+    p.textContent = toUSD(Products.price);
 
     const usd = '$' + Products.price.toFixed(2);
     p.textContent = usd;

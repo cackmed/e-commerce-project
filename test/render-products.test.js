@@ -1,6 +1,9 @@
 // IMPORT MODULES under test here:
 // import example from '../src/example.js';
 import renderProducts from '../products/render-products.js';
+import { findById } from '../common/utils.js';
+import renderLineItem from '../shoping-cart/render-line-item.js';
+import Products from '../data/productItems.js';
 const test = QUnit.test;
 
 QUnit.module('Renders Products');
@@ -26,4 +29,20 @@ test('randers a product', assert => {
     //Assert
     // Make assertions about what is expected valid result
     assert.equal(html, expected);
+});
+test('renders a line item', assert => {
+    // arrange
+    const lineItem = {
+        id: 'ironDagger',
+        quantity: 3
+    };
+    const ironDagger = findById(Products, lineItem.id);
+    const expected = '<tr><td class="align-left">Iron Dagger</td><td>3</td><td>$10.00</td><td class="line-item-total">$30.00</td></tr>';
+
+    // act
+    const dom = renderLineItem(lineItem, ironDagger);
+    const html = dom.outerHTML;
+    
+    // assert
+    assert.deepEqual(html, expected);
 });
