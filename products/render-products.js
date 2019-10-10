@@ -1,16 +1,26 @@
 import { toUSD } from '../common/utils.js';
 
-const retriveLocalCart = () => JSON.parse(localStorage.getItem(Cart_local_data));
-const Cart_local_data = 'cart';
-const vacantCart = [{ id: 'ironDagger', quantity: 1 }];
+export const cartLocalData = 'cart';
+const vacantCart = [{ id: 'ironDagger', quantity: 4 }];
+
+const retriveLocalCart = () => JSON.parse(localStorage.getItem(cartLocalData));
 const callEmptyCart = () => { const convertedCart = JSON.stringify(vacantCart);
     localStorage.setItem('cart', convertedCart);
 };
 const setLocalCart = (currentLocalCart) => {
     const newConvertedCart = JSON.stringify(currentLocalCart);
-    localStorage.setItem(Cart_local_data, newConvertedCart);
+    localStorage.setItem(cartLocalData, newConvertedCart);
 };
 
+export const getById = (id, Products) => {
+    let matchingProducts;
+    Products.forEach(Products => {
+        if (Products.id === id) {
+            matchingProducts = Products;
+        }
+    });
+    return matchingProducts; 
+};
 
 function renderProducts(Products) {
     const li = document.createElement('li');
