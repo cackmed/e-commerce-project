@@ -1,4 +1,17 @@
 import { toUSD } from '../common/utils.js';
+
+const retriveLocalCart = () => JSON.parse(localStorage.getItem(Cart_local_data));
+const Cart_local_data = 'cart';
+const vacantCart = [{ id: 'ironDagger', quantity: 1 }];
+const callEmptyCart = () => { const convertedCart = JSON.stringify(vacantCart);
+    localStorage.setItem('cart', convertedCart);
+};
+const setLocalCart = (currentLocalCart) => {
+    const newConvertedCart = JSON.stringify(currentLocalCart);
+    localStorage.setItem(Cart_local_data, newConvertedCart);
+};
+
+
 function renderProducts(Products) {
     const li = document.createElement('li');
     li.className = Products.category;
@@ -24,13 +37,18 @@ function renderProducts(Products) {
     button.textContent = 'Add'; 
     button.value = Products.id;
     button.addEventListener('click', () => {
-        const getCart = retriveLocalCart;
-
-    }
+        let currentLocalCart = retriveLocalCart();
+        if (!currentLocalCart) { 
+            callEmptyCart();
+            currentLocalCart = retriveLocalCart();
+        }
+        setLocalCart(currentLocalCart);
+    });
     p.appendChild(button);
 
     li.appendChild(p);
 
     return li;
 }
+
 export default renderProducts;
