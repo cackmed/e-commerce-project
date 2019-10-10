@@ -32,10 +32,10 @@ const addRows = (cart, Products) => {
 const javascriptCart = JSON.parse(localStorage.getItem(localCartData));
 buildTable(javascriptCart, Products);
 
-//for (let i = 0; i < cart.length; i++) {
-//    const lineItem = cart[i];
-//    const weapon = findById(Products, lineItem.id);
-//    const dom = renderLineItem(lineItem, weapon);
-//
-//    tbody.appendChild(dom);
-//}
+for (let i = 0; i < cart.length; i++) {
+    const lineItem = cart[i];
+    const weapon = findById(Products, lineItem.id);
+    const dom = renderLineItem(lineItem, weapon);
+
+    tbody.appendChild(dom);
+}

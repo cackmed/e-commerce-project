@@ -70,6 +70,7 @@ function renderProducts(Products) {
         if (!currentLocalCart) { 
             callEmptyCart();
             currentLocalCart = retriveLocalCart();
+            
         }
         addIntoCartById(Products.id, currentLocalCart);
         setLocalCart(currentLocalCart);
