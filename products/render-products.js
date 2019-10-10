@@ -1,7 +1,7 @@
 import { toUSD } from '../common/utils.js';
 
 export const cartLocalData = 'cart';
-const vacantCart = [{ id: 'ironDagger', quantity: 4 }];
+const vacantCart = [{ id: 'ironDagger', quantity: 1 }];
 
 const retriveLocalCart = () => JSON.parse(localStorage.getItem(cartLocalData));
 const callEmptyCart = () => { const convertedCart = JSON.stringify(vacantCart);
@@ -20,6 +20,25 @@ export const getById = (id, Products) => {
         }
     });
     return matchingProducts; 
+};
+
+export const addIntoCartById = (id, cart) => {
+    let correctMatch = false;
+    cart.forEach(order => {
+        if (order.id === id) {
+            order.quantity++;
+            correctMatch = true;
+        }
+    });
+    if (correctMatch) {
+        return;
+    } else {
+        const newItem = {
+            id: id,
+            quantity: 1,
+        };
+        cart.push(newItem);
+    }
 };
 
 function renderProducts(Products) {
@@ -52,6 +71,7 @@ function renderProducts(Products) {
             callEmptyCart();
             currentLocalCart = retriveLocalCart();
         }
+        addIntoCartById(Products.id, currentLocalCart);
         setLocalCart(currentLocalCart);
     });
     p.appendChild(button);
