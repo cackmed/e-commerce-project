@@ -8,3 +8,41 @@
     display: flex;
     justify-content: center;
 }
+.images {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+    height: 150;
+    width: 100;
+
+}
+.navbar {
+    display: flex;
+    border-style: groove;
+    height: 40px;
+    justify-content: flex-end;
+    background-color: slategray;
+justify-content: space-around;
+}
+.background {
+    background-color: darkgoldenrod;
+}
+.heropic {
+    display: flex;
+    justify-content: center;
+}
+.hero-pic {
+    width: 2000px;
+    height: 500px;
+}
+.text-area {
+    border-style: groove;
+    height: 400px;
+    width: 100pc;
+}
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
