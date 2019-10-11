@@ -1,7 +1,9 @@
 import Products from '../data/productItems.js';
 import { findById, calcOrderTotal, toUSD } from '../common/utils.js';
 import renderLineItem from './render-line-item.js';
-import { localCartData } from '../products/render-products.js';
+import { cartLocalData } from '../products/render-products.js';
+const cart = JSON.parse(localStorage.getItem(cartLocalData));
+
 
 const tbody = document.querySelector('tbody');
 
@@ -28,8 +30,6 @@ const addRows = (cart, Products) => {
         addRow(productsOrder, Products);
     });
 };
-
-const javascriptCart = JSON.parse(localStorage.getItem(localCartData));
 buildTable(javascriptCart, Products);
 
 for (let i = 0; i < cart.length; i++) {
