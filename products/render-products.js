@@ -1,7 +1,7 @@
 import { toUSD } from '../common/utils.js';
 
 export const cartLocalData = 'cart';
-const vacantCart = [{ id: 'ironDagger', quantity: 1 }];
+const vacantCart = [];
 
 const retriveLocalCart = () => JSON.parse(localStorage.getItem(cartLocalData));
 const callEmptyCart = () => { const convertedCart = JSON.stringify(vacantCart);
