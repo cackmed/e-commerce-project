@@ -8,3 +8,44 @@
     display: flex;
     justify-content: center;
 }
+.img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+.product-pic {
+    background-color: white;
+    height: 300px;
+    width: 200px;
+
+
+}
+.navbar {
+    display: flex;
+    border-style: groove;
+    height: 40px;
+    justify-content: flex-end;
+    background-color: slategray;
+}
+.background {
+    background-color: darkgoldenrod;
+}
+.heropic {
+    display: flex;
+    justify-content: center;
+}
+.hero-pic {
+    width: 2000px;
+    height: 500px;
+}
+.text-area {
+    border-style: groove;
+    height: 400px;
+    width: 100pc;
+}
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
