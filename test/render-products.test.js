@@ -1,9 +1,10 @@
 // IMPORT MODULES under test here:
 // import example from '../src/example.js';
 import renderProducts from '../products/render-products.js';
-import { findById } from '../common/utils.js';
+import { findById, calcLineTotal, calcOrderTotal } from '../common/utils.js';
 import renderLineItem from '../shoping-cart/render-line-item.js';
 import Products from '../data/productItems.js';
+
 const test = QUnit.test;
 
 QUnit.module('Renders Products');
@@ -38,6 +39,22 @@ test('renders a line item', assert => {
     };
     const ironDagger = findById(Products, lineItem.id);
     const expected = '<tr><td class="align-left">Iron Dagger</td><td>3</td><td>$10.00</td><td class="line-item-total">$30.00</td></tr>';
+
+    // act
+    const dom = renderLineItem(lineItem, ironDagger);
+    const html = dom.outerHTML;
+    
+    // assert
+    assert.deepEqual(html, expected);
+});
+test('FindbyID finds and calls item in Product List', assert => {
+    // arrange
+    const findById = ProductsArray;
+
+    const cartID = 'guitar';
+
+    const expected = rootGuitar;
+
 
     // act
     const dom = renderLineItem(lineItem, ironDagger);
