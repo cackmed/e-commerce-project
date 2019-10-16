@@ -57,3 +57,14 @@ test('Finds a product by id from product Array', assert => {
     //Assert
     assert.equal(findProduct.name, expected);
 });
+test('finds the total price of the line', assert => {
+    //Arrange
+    const quantity = 5;
+    const price = 1.00;
+    const expected = 5.00;
+    // Set up your parameters and expectations    
+    //Act 
+    const lineTotal = calcLineTotal(quantity, price);
+    //Assert
+    assert.equal(lineTotal, expected);
+});
