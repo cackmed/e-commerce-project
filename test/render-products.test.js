@@ -4,6 +4,7 @@ import renderProducts from '../products/render-products.js';
 import { findById, calcLineTotal, calcOrderTotal } from '../common/utils.js';
 import renderLineItem from '../shoping-cart/render-line-item.js';
 import Products from '../data/productItems.js';
+import cart from '../data/carts.js';
 
 const test = QUnit.test;
 
@@ -67,4 +68,13 @@ test('finds the total price of the line', assert => {
     const lineTotal = calcLineTotal(quantity, price);
     //Assert
     assert.equal(lineTotal, expected);
+});
+test('finds the total price of the whole order', assert => {
+    //Arrange
+    const expected = 1145.00;
+    // Set up your parameters and expectations    
+    //Act 
+    const orderTotal = calcOrderTotal(cart, Products);
+    //Assert
+    assert.equal(orderTotal, expected);
 });
