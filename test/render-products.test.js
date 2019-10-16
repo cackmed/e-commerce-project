@@ -47,19 +47,13 @@ test('renders a line item', assert => {
     // assert
     assert.deepEqual(html, expected);
 });
-test('FindbyID finds and calls item in Product List', assert => {
-    // arrange
-    const findById = ProductsArray;
-
-    const cartID = 'guitar';
-
-    const expected = rootGuitar;
-
-
-    // act
-    const dom = renderLineItem(lineItem, ironDagger);
-    const html = dom.outerHTML;
-    
-    // assert
-    assert.deepEqual(html, expected);
+test('Finds a product by id from product Array', assert => {
+    //Arrange
+    // Set up your parameters and expectations
+    const id = 'ironDagger';
+    const expected = 'Iron Dagger';
+    //Act 
+    const findProduct = findById(Products, id);
+    //Assert
+    assert.equal(findProduct.name, expected);
 });
