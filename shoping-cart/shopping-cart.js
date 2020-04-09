@@ -3,6 +3,7 @@ import { findById, calcOrderTotal, toUSD } from '../common/utils.js';
 import renderLineItem from './render-line-item.js';
 import { cartLocalData } from '../products/render-products.js';
 
+const placeOrder = document.getElementById('place-order');
 const tbody = document.querySelector('tbody');
 const cart = JSON.parse(localStorage.getItem(cartLocalData));
 
@@ -25,3 +26,14 @@ export const getById = (id, Products) => {
 };
 const orderTotalCell = document.getElementById('order-total-cell');
 orderTotalCell.textContent = toUSD(calcOrderTotal(cart, Products));
+
+if (cart.length === 0) {
+    placeOrder.disabled = true;
+} else {
+    placeOrder.addEventListener('click', () => {
+        localStorage.removeItem('cart');
+        alert('Your Order is' + JSON.stringify(cart, true, 2));
+        window.location = '../';
+    });
+}
+
