@@ -3,7 +3,6 @@ import { toUSD } from '../common/utils.js';
 
 function renderLineItem(lineItem, item) {
     const tr = document.createElement('tr');
-
     const nameCell = document.createElement('td');
     nameCell.className = 'align-left';
     nameCell.textContent = item.name;

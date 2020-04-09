@@ -36,3 +36,4 @@ if (cart.length === 0) {
         window.location = '../';
     });
 }
+
